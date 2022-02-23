@@ -59,6 +59,12 @@ class Users extends React.Component {
 
   createClick() {
 
+    if((this.state.FirstName || this.state.LastName || this.state.Gender || this.state.Address || this.state.DOB || this.state.Phone || this.state.Email) === '')
+    {
+      alert('PLease enter all the values in form');
+      return;
+    }
+
     this.setState({createBtn: false, loading: true});
 
     axios.post(variables.API_URL + 'users', {
